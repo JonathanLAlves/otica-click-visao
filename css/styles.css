@@ -293,6 +293,9 @@ button {
 .button--large {
   min-height: 56px;
   padding-inline: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .eyebrow {
