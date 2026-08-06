@@ -260,7 +260,7 @@ button {
 }
 
 .button--primary {
-  color: #ffffff;
+  color: #fcfbfb;
   background: var(--brand);
   box-shadow: 0 12px 30px rgba(255, 47, 146, 0.25);
 }
@@ -295,7 +295,7 @@ button {
   padding-inline: 26px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 }
 
 .eyebrow {
@@ -370,6 +370,8 @@ button {
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 34px;
+  justify-content: center;
+  align-items: center;
 }
 
 .hero__highlights {
@@ -412,7 +414,7 @@ button {
   z-index: 2;
   overflow: hidden;
   margin: 0;
-  border: 10px solid #ffffff;
+  border: 0px solid #ffffff;
   border-radius: 34px;
   background: #ffffff;
   box-shadow: var(--shadow-lg);
@@ -622,7 +624,7 @@ button {
   position: relative;
   z-index: 2;
   align-self: stretch;
-  min-height: 610px;
+  min-height: 400px;
   margin: 0;
   background: #ffffff;
 }
@@ -1199,7 +1201,7 @@ button {
   align-items: center;
   gap: 10px;
   padding: 10px 18px 10px 12px;
-  border: 3px solid #ffffff;
+  border: 0px solid #ffffff;
   border-radius: 999px;
   color: #ffffff;
   background: var(--success);
