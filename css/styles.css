@@ -624,16 +624,19 @@ button {
   position: relative;
   z-index: 2;
   align-self: stretch;
-  min-height: 400px;
+  width: 100%;
+  min-height: 520px;
   margin: 0;
+  overflow: hidden;
   background: #ffffff;
 }
 
 .promo__image img {
   width: 100%;
   height: 100%;
+  min-height: 520px;
   object-fit: cover;
-  object-position: center;
+  object-position: center 28%;
 }
 
 .section-heading {
@@ -749,12 +752,28 @@ button {
 }
 
 .product-card {
+  position: relative;
+  min-height: 430px;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: #ffffff;
-  box-shadow: 0 8px 26px rgba(33, 31, 32, 0.04);
+  box-shadow: 0 8px 26px rgba(33, 31, 32, 0.08);
   transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.product-card::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: "";
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    rgba(0, 0, 0, 0.76) 100%
+  );
 }
 
 .product-card:hover {
@@ -763,10 +782,12 @@ button {
 }
 
 .product-card__image {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   display: block;
   width: 100%;
-  height: 330px;
+  height: 100%;
   overflow: hidden;
   padding: 0;
   cursor: zoom-in;
@@ -777,6 +798,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   transition: transform 420ms ease;
 }
 
@@ -788,6 +810,7 @@ button {
   position: absolute;
   top: 16px;
   left: 16px;
+  z-index: 3;
   padding: 8px 12px;
   border-radius: 999px;
   color: var(--ink);
@@ -800,8 +823,10 @@ button {
 
 .product-card__zoom {
   position: absolute;
+  top: 16px;
   right: 16px;
-  bottom: 16px;
+  bottom: auto;
+  z-index: 3;
   display: grid;
   width: 44px;
   height: 44px;
@@ -815,17 +840,24 @@ button {
 }
 
 .product-card__content {
-  padding: 24px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  padding: 26px;
+  color: #ffffff;
 }
 
 .product-card__content h3 {
   margin: 0;
-  font-size: 1.2rem;
+  color: #ffffff;
+  font-size: 1.25rem;
 }
 
 .product-card__content p {
   margin: 10px 0 18px;
-  color: var(--ink-soft);
+  color: rgba(255, 255, 255, 0.86);
   font-size: 0.92rem;
 }
 
@@ -834,15 +866,28 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--brand-dark);
+  width: fit-content;
+  padding: 11px 16px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: var(--brand);
+  box-shadow: 0 10px 24px rgba(255, 47, 146, 0.32);
   font-size: 0.9rem;
   font-weight: 900;
+  transition: background-color var(--transition), transform var(--transition);
 }
 
 .product-card__content a:hover,
 .text-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  background: var(--brand-dark);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 620px) {
+  .product-card {
+    min-height: 390px;
+  }
 }
 
 .section-cta {
@@ -1594,5 +1639,74 @@ button {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+/* Remove a imagem da área Hero Visual */
+.hero__visual {
+  display: none;
+}
+
+/* Ajusta o Hero para não ficar com espaço vazio */
+.hero__grid {
+  grid-template-columns: 1fr;
+}
+
+.hero__content {
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero__lead {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.hero__highlights {
+  justify-content: center;
+}
+
+/* Nova imagem abaixo da Promo Image */
+.promo__hero-image {
+  position: relative;
+  z-index: 2;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  padding: 50px 72px 72px;
+}
+
+.promo__hero-image img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsivo */
+@media (max-width: 860px) {
+  .promo__image {
+  min-height: 360px;
+  max-height: 420px;
+}
+
+.promo__image img {
+  min-height: 360px;
+  object-fit: cover;
+  object-position: center 24%;
+  background-position: left top;
+}
+}
+
+@media (max-width: 620px) {
+  .promo__hero-image {
+    padding: 0 10px 24px;
+  }
+
+  .promo__hero-image img {
+    height: 350px;
+    border-radius: 25px;
   }
 }
