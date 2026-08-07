@@ -45,3 +45,4 @@ Abra a pasta no VS Code e use a extensão **Live Server** no arquivo `index.html
 - WhatsApp: `(21) 99919-4510`
 - Instagram: `@oticaclickvisao`
 - Endereço: `Av. Min. Ary Franco, 109 Ai - Bangu, Rio de Janeiro - RJ, 21862-005`
+- Pagina atualizada
