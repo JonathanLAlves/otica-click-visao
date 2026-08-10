@@ -1453,9 +1453,14 @@ button {
     border-bottom: 0;
   }
 
+  img {
+  max-width: 100%;
+  height: auto;
+}
+
   .promo__image {
-    min-height: 520px;
-  }
+  overflow: hidden;
+}
 
   .promo__image img {
     object-position: top center;
@@ -1668,36 +1673,35 @@ button {
 
 /* Nova imagem abaixo da Promo Image */
 .promo__hero-image {
-  position: relative;
-  z-index: 2;
-  grid-column: 1 / -1;
   width: 100%;
+  max-width: 100%;
   margin: 0;
-  padding: 50px 72px 72px;
+  overflow: hidden;
+  background: #ffffff;
 }
 
 .promo__hero-image img {
+  display: block;
   width: 100%;
-  height: 520px;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
   object-position: center;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
 }
+
 
 /* Responsivo */
 @media (max-width: 860px) {
   .promo__image {
-  min-height: 360px;
-  max-height: 420px;
+  overflow: hidden;
 }
 
 .promo__image img {
-  min-height: 360px;
-  object-fit: cover;
-  object-position: center 24%;
-  background-position: left top;
-}
+  width: 100%;
+  height: auto;
+  min-height: initial;
+  object-fit: contain;
+  object-position: center;
 }
 
 @media (max-width: 620px) {
@@ -1860,33 +1864,38 @@ button {
 }
 
 .promo__image {
-  min-height: clamp(420px, 48vw, 610px);
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .promo__image img {
   width: 100%;
-  height: 100%;
-  min-height: 0;
-  object-fit: cover;
+  height: auto;
+  min-height: initial;
+  object-fit: contain;
+  object-position: center;
 }
 
 /* Imagem extra abaixo da promoção */
 .promo__hero-image {
-  position: relative;
-  z-index: 2;
-  width: min(var(--container), calc(100% - clamp(28px, 5vw, 64px)));
-  margin: clamp(28px, 5vw, 54px) auto 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   overflow: hidden;
-  border-radius: clamp(18px, 3vw, 36px);
   background: #ffffff;
-  box-shadow: var(--shadow-sm);
 }
 
+
 .promo__hero-image img {
+  display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
-  aspect-ratio: 1181 / 520;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -2390,3 +2399,193 @@ button {
   }
 }
 
+/* =========================================================
+   CORREÇÃO MOBILE - MENU E IMAGENS
+   Cole este bloco no FINAL do styles.css
+   ========================================================= */
+
+/* Evita estouro lateral no mobile */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Garante que imagens nunca ultrapassem a tela */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Correção da imagem grande/arte abaixo da promoção */
+.promo__hero-image {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.promo__hero-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Correção da imagem do panfleto dentro da promoção */
+.promo__image {
+  overflow: hidden;
+}
+
+.promo__image img {
+  width: 100%;
+  height: auto;
+  min-height: initial;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
+
+@media (max-width: 860px) {
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .header {
+    z-index: 1000;
+  }
+
+  .header__content {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+    flex: 0 0 46px;
+    margin-left: auto;
+    z-index: 1002;
+  }
+
+  .nav {
+    position: fixed;
+    top: calc(var(--header-height) + 48px);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    gap: 0;
+    width: 100%;
+    padding: 18px 22px 32px;
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 18px 40px rgba(33, 31, 32, 0.14);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+
+    transition:
+      opacity var(--transition),
+      transform var(--transition),
+      visibility var(--transition);
+  }
+
+  .nav.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav a {
+    display: flex;
+    width: 100%;
+    min-height: 54px;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--ink);
+    font-size: 1.05rem;
+    font-weight: 800;
+  }
+
+  .nav a::after {
+    display: none;
+  }
+}
+
+/* Ajuste extra para celulares menores */
+@media (max-width: 620px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .hero {
+    padding-top: 42px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.45rem, 13vw, 3.65rem);
+    line-height: 0.98;
+  }
+
+  .promo__card {
+    min-height: initial;
+  }
+
+  .promo__copy {
+    padding: 30px 22px;
+  }
+
+  .promo__image {
+    min-height: initial;
+  }
+
+  .promo__image img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .promo__hero-image {
+    margin-top: 0;
+  }
+
+  .promo__hero-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+/* Ajuste para celulares muito baixos */
+@media (max-width: 420px) {
+  .nav {
+    top: calc(var(--header-height) + 56px);
+    padding-bottom: 72px;
+  }
+
+  .nav a {
+    min-height: 50px;
+    font-size: 1rem;
+  }
+}
+}
