@@ -2421,17 +2421,15 @@ img {
 
 /* Correção da imagem grande/arte abaixo da promoção */
 .promo__hero-image {
-  width: 100%;
-  max-width: 150%;
-  margin: 10px;
-  overflow: hidden;
-  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .promo__hero-image img {
   display: block;
-  width: 100%;
-  max-width: 100%;
+  width: 150%;
+  max-width: 1080px;
   height: auto;
   object-fit: contain;
   object-position: center;
