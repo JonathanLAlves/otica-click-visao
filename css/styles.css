@@ -2422,8 +2422,8 @@ img {
 /* Correção da imagem grande/arte abaixo da promoção */
 .promo__hero-image {
   width: 100%;
-  max-width: 100%;
-  margin: 0;
+  max-width: 150%;
+  margin: 10px;
   overflow: hidden;
   background: #ffffff;
 }
