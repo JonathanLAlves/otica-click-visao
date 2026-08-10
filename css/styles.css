@@ -1695,6 +1695,7 @@ button {
   .promo__image {
   overflow: hidden;
 }
+}
 
 .promo__image img {
   width: 100%;
@@ -1703,6 +1704,7 @@ button {
   object-fit: contain;
   object-position: center;
 }
+
 
 @media (max-width: 620px) {
   .promo__hero-image {
@@ -2588,4 +2590,4 @@ img {
     font-size: 1rem;
   }
 }
-}
+
