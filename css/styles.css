@@ -2430,7 +2430,7 @@ img {
 .promo__hero-image img {
   display: block;
   width: 150%;
-  max-width: 1080px;
+  max-width: 65%;
   height: auto;
   object-fit: contain;
   object-position: center;
